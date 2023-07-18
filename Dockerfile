@@ -7,7 +7,7 @@ RUN apk add --no-cache \
         python3 \
         py3-pip
 RUN pip3 install pip==23.1.2
-RUN pip3 install install git+git://github.com/aws/aws-cli.git#1.20.7
+RUN pip3 install git+git://github.com/aws/aws-cli.git#1.20.7
 RUN rm -rf /var/cache/apk/*
 # Just to make sure its installed alright
 RUN aws --version
