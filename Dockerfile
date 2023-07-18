@@ -1,9 +1,9 @@
-FROM node:12.16.1-alpine
+FROM alpine:latest
 ARG KUBECTL_VERSION="1.15.10"
 RUN apk add --no-cache \
         python3 \
         py3-pip
-RUN pip3 install pip==23.1.2
+RUN pip3 install pip
 RUN pip3 install awscli==1.20.8 --no-build-isolation \
     && rm -rf /var/cache/apk/*
 RUN aws --version
