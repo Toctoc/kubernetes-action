@@ -4,10 +4,8 @@ echo "${KUBE_CONFIG_DATA}" | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
 
 echo "Arguments: $@"
-args_array=("$@")
-first_arg="${args_array[0]}"
 
-result=$(kubectl "$first_arg" | awk '{ printf "%s", $0 }')
+result=$(kubectl "$0" | awk '{ printf "%s", $0 }')
 status=$?
 
 echo "::set-output name=result::$result"
