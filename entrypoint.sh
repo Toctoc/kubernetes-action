@@ -5,7 +5,7 @@ export KUBECONFIG=kubeconfig
 
 echo "Arguments: $@"
 
-result=$(kubectl "$0" | awk '{ printf "%s", $0 }')
+result=$(kubectl "${@:1}" | awk '{ printf "%s", $0 }')
 status=$?
 
 echo "::set-output name=result::$result"
