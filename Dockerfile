@@ -1,10 +1,10 @@
-FROM alpine:latest
+FROM node:12.16.1-alpine
 ARG KUBECTL_VERSION="1.15.10"
 RUN apk add --no-cache \
         python3 \
         py3-pip
 RUN pip3 install pip
-RUN pip3 install awscli==1.20.8 --no-build-isolation \
+RUN pip3 install awscli==1.19.46 --no-build-isolation \
     && rm -rf /var/cache/apk/*
 RUN aws --version
 RUN apk add curl
