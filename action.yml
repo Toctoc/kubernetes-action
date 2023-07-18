@@ -12,10 +12,6 @@ outputs:
     description: "Output of the kubectl command run"
 runs:
   steps:
-    - name: Print inputs.args
+    - name: Print arguments
       run: |
-        echo "inputs.args: ${{ inputs.args }}"
-    - name: Run Docker container
-      uses: docker://${{ github.repository }}:Dockerfile
-      with:
-        args: ${{ inputs.args }}
+        echo "Arguments: ${{ inputs.args }}"
