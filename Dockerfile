@@ -6,7 +6,7 @@ ARG KUBECTL_VERSION="1.15.10"
 RUN apk add --no-cache \
         python3 \
         py3-pip \
-        aws-cli=1.20.8
+        aws-cli==1.20.8
 # RUN pip3 install pip==23.1.2
 RUN rm -rf /var/cache/apk/*
 # Just to make sure its installed alright
