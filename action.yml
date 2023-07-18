@@ -11,9 +11,7 @@ outputs:
   result:
     description: "Output of the kubectl command run"
 runs:
-  using: "composite"
-  steps:
-    - name: Print arguments
-      shell: bash
-      run: |
-        echo "Arguments: ${{ inputs.args }}"
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.args }}
