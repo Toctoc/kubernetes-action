@@ -11,7 +11,7 @@ printf '\n'
 printf " '%s'" "$1"
 printf '\n'
 
-result="$(kubectl $1)"
+result="$(kubectl "$1" | sed -e ':a' -e '$!{' -e 'N' -e 'ba' -e '}' -e 's/\n/ /g')"
 status=$?
 
 echo "::set-output name=result::$result"
