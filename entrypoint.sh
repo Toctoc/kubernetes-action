@@ -3,13 +3,9 @@
 echo "${KUBE_CONFIG_DATA}" | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
 
-printf '%d args:' "$#"
-printf '\n'
-printf " '%s'" "$@"
-printf '\n'
-
-printf " '%s'" "$1"
-printf '\n'
+echo "Arguments: $@"
+first_arg=$(echo "$1" | awk '{print $1}')
+second_arg=$(echo "$2" | awk '{print $1}')
 
 result="$(kubectl "$1" | sed -e ':a' -e '$!{' -e 'N' -e 'ba' -e '}' -e 's/\n/ /g')"
 status=$?
