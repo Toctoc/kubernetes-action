@@ -7,8 +7,8 @@ RUN apk add --no-cache \
         python3 \
         py3-pip \
     && pip3 install pip==23.1.2 \
-    && pip3 install \
-        awscli==1.20.8 \
+    && pip3 install --upgrade pip \
+    && pip3 install awscli==1.20.8 \
     && rm -rf /var/cache/apk/*
 # Just to make sure its installed alright
 RUN aws --version
