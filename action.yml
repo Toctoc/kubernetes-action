@@ -16,6 +16,6 @@ runs:
       run: |
         echo "inputs.args: ${{ inputs.args }}"
     - name: Run Docker container
-      uses: Dockerfile
+      uses: docker://${{ github.repository }}:Dockerfile
       with:
         args: ${{ inputs.args }}
