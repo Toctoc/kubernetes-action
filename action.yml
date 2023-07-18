@@ -1,5 +1,5 @@
 name: "Kubernetes Action with aws-iam-authenticator"
-description: "Interacts with kubernetes clusters calling kubectl commands. Integrates support for AWS EKS via aws-iam-authenticator."
+description: "Interacts with Kubernetes clusters calling kubectl commands. Integrates support for AWS EKS via aws-iam-authenticator."
 branding:
   icon: 'anchor'  
   color: 'blue'
@@ -11,7 +11,11 @@ outputs:
   result:
     description: "Output of the kubectl command run"
 runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - ${{ inputs.args }}
+  steps:
+    - name: Print inputs.args
+      run: |
+        echo "inputs.args: ${{ inputs.args }}"
+    - name: Run Docker container
+      uses: Dockerfile
+      with:
+        args: ${{ inputs.args }}
