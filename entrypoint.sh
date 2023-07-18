@@ -3,7 +3,7 @@
 echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
 
-COMMAND=$(echo $1|tr -d '\n')
+COMMAND=$(echo $1| tr "\n" " ")
 
 result="$(kubectl $COMMAND)"
 
