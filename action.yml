@@ -13,6 +13,5 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ split(inputs.args, ' ') }}
+  args: "${{ inputs.args }}"
 
