@@ -7,7 +7,7 @@ echo "Arguments: $@"
 args_array=("$@")
 first_arg="${args_array[0]}"
 
-result="$(kubectl "$first_arg" | sed -e ':a' -e '$!{' -e 'N' -e 'ba' -e '}' -e 's/\n/ /g')"
+result=$(kubectl "$first_arg" | awk '{ printf "%s", $0 }')
 status=$?
 
 echo "::set-output name=result::$result"
