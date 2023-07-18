@@ -5,10 +5,10 @@ ARG KUBECTL_VERSION="1.15.10"
 # RUN apk add --update --no-cache python2 && ln -sf python2 /usr/bin/python
 RUN apk add --no-cache \
         python3 \
-        py3-pip \
-    && pip3 install pip==23.1.2 \
-    && pip3 install awscli==1.20.8 \
-    && rm -rf /var/cache/apk/*
+        py3-pip
+RUN pip3 install pip==23.1.2
+RUN pip3 install awscli==1.20.8
+RUN rm -rf /var/cache/apk/*
 # Just to make sure its installed alright
 RUN aws --version
 RUN apk add curl
